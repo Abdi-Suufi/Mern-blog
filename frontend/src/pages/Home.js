@@ -1,7 +1,5 @@
-// src/pages/Home.js
 import axios from "../api/axios";
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 
 function Home() {
   const [posts, setPosts] = useState([]);

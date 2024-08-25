@@ -14,6 +14,8 @@ function NewPost() {
     },
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -29,14 +31,18 @@ function NewPost() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("/posts", formData)
-      .then((response) => {
-        navigate("/");
-      })
-      .catch((error) => console.error("Error creating post:", error));
+    setIsSubmitting(true); // Disable the button when the form is submitted
+
+    try {
+      await axios.post("/posts", formData);
+      navigate("/");
+    } catch (error) {
+      console.error("Error creating post:", error);
+    } finally {
+      setIsSubmitting(false); // Re-enable the button after the submission is complete
+    }
   };
 
   return (
@@ -103,8 +109,8 @@ function NewPost() {
           onChange={handleChange}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Create Post
+      <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+        {isSubmitting ? "Creating Post..." : "Create Post"}
       </button>
     </form>
   );
