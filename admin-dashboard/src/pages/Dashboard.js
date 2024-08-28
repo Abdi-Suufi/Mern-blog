@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -29,6 +30,7 @@ const Dashboard = () => {
 
   return (
     <div className="container">
+      <Navbar />
       <h1 className="my-4">Admin Dashboard</h1>
       <div className="row">
         {posts.map((post) => (

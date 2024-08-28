@@ -25,12 +25,13 @@ function Home() {
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             <p className="text-muted">By {post.author}</p>
-            <div className="social-links">
+            <div className="social-links mb-3">
               {post.socials.twitter && (
                 <a
                   href={post.socials.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="btn btn-outline-primary btn-sm me-2"
                 >
                   Twitter
                 </a>
@@ -40,6 +41,7 @@ function Home() {
                   href={post.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="btn btn-outline-primary btn-sm me-2"
                 >
                   LinkedIn
                 </a>
@@ -49,6 +51,7 @@ function Home() {
                   href={post.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="btn btn-outline-primary btn-sm"
                 >
                   GitHub
                 </a>
