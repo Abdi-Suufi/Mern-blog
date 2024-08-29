@@ -21,7 +21,7 @@ function NewPost() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name.includes("socials.")) {
-      const [_, key] = name.split(".");
+      const [key] = name.split(".");
       setFormData({
         ...formData,
         socials: { ...formData.socials, [key]: value },

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NewPost from "./pages/NewPost";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap styling is included
+import "./styles.css";
 
 function App() {
   return (
